@@ -1,0 +1,1 @@
+everytime we encounter a smaller or equal char than before we start a new abc sequence thus adding a length of 3 each time it happens
