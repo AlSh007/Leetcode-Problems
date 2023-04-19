@@ -18,6 +18,5 @@ class Solution:
                     dfs(node.left, False, 1)
                     dfs(node.right, True, steps + 1)
         
-        dfs(root, False, 0)
         dfs(root, True, 0)
         return self.pathLength
