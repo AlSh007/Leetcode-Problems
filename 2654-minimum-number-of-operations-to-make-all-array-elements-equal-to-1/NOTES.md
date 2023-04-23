@@ -1,0 +1,1 @@
+if there is any 1 in array rest can be made 1 in n-count of one operations, otherwise we make 1 first and then make the rest elements 1 using that
