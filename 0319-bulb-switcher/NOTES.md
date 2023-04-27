@@ -1,1 +1,1 @@
-only those lights will be toggled on whose factors are odd and factors of only perfect squares are odd
+only those lights will be toggled on whose factors are odd and factors of only perfect squares are odd, It might be unintuitive, but with a few examples, we can easily see that a perfect square number has an odd number of factors, since any number's factors come in pairs of two different numbers, but the square root of the number will be paired with itself.
