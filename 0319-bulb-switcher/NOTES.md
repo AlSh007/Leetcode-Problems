@@ -1,0 +1,1 @@
+only those lights will be toggled on whose factors are odd and factors of only perfect squares are odd
