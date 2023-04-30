@@ -1,1 +1,1 @@
-​
+we add the edges one by one and first we add the type 3 edges so that we dont need to add type 1 or type 2 for that respective edge and we keep decreasing the number of distinct components each time we do a union and then finally we check if the whole graph is traversable by checking if the number of distinct component is equal to 1 and if that's the case we return the output as adges.size() - edgesAdded because we didn;t add the redundant edges
