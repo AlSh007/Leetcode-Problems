@@ -1,24 +1,6 @@
 class Solution {
 public:
-    double average(vector<int>& salary) {
-        double max = DBL_MIN;
-        double min = DBL_MAX;
-        double sum = 0;
-        
-        for(int i=0; i < salary.size(); i++){
-            
-            sum += salary[i];
-            
-            if(salary[i] < min)
-               min = salary[i];
-            
-            if(salary[i] > max)
-               max = salary[i];
-            
-        }
-        
-        
-        sum = sum - min - max;
-        return sum / (salary.size()-2);
+    double average(vector<int>& s) {
+        return (accumulate(begin(s),end(s),0.)-*min_element(begin(s),end(s))-*max_element(begin(s),end(s)))/(s.size()-2);
     }
 };
