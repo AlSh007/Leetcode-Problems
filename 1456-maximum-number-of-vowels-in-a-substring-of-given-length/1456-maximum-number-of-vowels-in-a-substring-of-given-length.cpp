@@ -4,21 +4,15 @@ public:
         int i=0,j=0;
         int countVowel=0;
         int maxCount=0;
-        while(j<s.length()){
-            if(s[j]=='a' or s[j]=='i' or s[j]=='e' or s[j]=='o' or s[j]=='u')
-                    countVowel++;
-            
-            if(j-i+1==k){
-                maxCount=max(maxCount,countVowel);
-                if(s[i]=='a' or s[i]=='i' or s[i]=='e' or s[i]=='o' or s[i]=='u')
-                    countVowel--;
-                j++;
-                i++;
+        bool vowels[26]={false};
+        vowels[0]=vowels[4]=vowels[8]=vowels[14]=vowels[20]=true;
+        for(int i=0;i<s.length();i++){
+            if(i>=k and vowels[s[i-k]-'a']){
+                countVowel--;
             }
-            if(j-i+1<k)
-            {
-                j++;
-            }
+            if(vowels[s[i]-'a'])
+                countVowel++;
+            maxCount=max(maxCount,countVowel);
         }
         return maxCount;
     }
