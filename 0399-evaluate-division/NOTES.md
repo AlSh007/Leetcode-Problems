@@ -1,0 +1,1 @@
+we are traversing a path from numerator to denominator of the given query because by multiplying all the values in the path, we will get the result of our query
