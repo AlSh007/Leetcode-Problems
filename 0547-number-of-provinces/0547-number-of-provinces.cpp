@@ -1,21 +1,37 @@
 class Solution {
 public:
-    void dfs(int node,vector<vector<int>>& isConnected,vector<bool>& vis){
-        vis[node] = true;
-        for(int i=0;i<isConnected[node].size();i++){
-            if(!vis[i] and isConnected[node][i])
-                dfs(i,isConnected,vis);
-        }
-    }
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        int n = isConnected.size(), ans = 0;
-        vector<bool> visited(n,false);
+    int parent[201];
+    int findCircleNum(vector<vector<int>>& m) {
+        int i,j,n=m.size(),groups = 0;
+        make_set(n);
+        
         for(int i=0;i<n;i++){
-            if(!visited[i]){
-                ans++;
-                dfs(i,isConnected,visited);
+            for(int j=i+1;j<n;j++){
+                if(m[i][j])
+                union_set(i,j);
             }
         }
-        return ans;
+        for(int i=0;i<n;i++){
+            if(i == parent[i])
+                groups++;
+        }
+        return groups;
+    }
+    private:
+    void make_set(int n){
+        for(int i=0;i<n;i++){
+            parent[i]=i;
+        }
+    }
+    int find_set(int v){
+        if(v==parent[v])
+            return v;
+        return parent[v]=find_set(parent[v]);
+    }
+    void union_set(int i,int j){
+        i = find_set(i);
+        j = find_set(j);
+        if(i!=j)
+            parent[j]=i;
     }
 };
