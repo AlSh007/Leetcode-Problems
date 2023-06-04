@@ -1,22 +1,26 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)
-        visited = [False]*n
-        count  = 0
+        parent = list(range(n))
+        size = [1]*n
         
-        if not isConnected:
-            return 0
+        def find_parent(a):
+            if parent[a] != a:
+                parent[a] = find_parent(parent[a])
+            return parent[a]
         
-        def dfs(idx):
-            visited[idx] = True
-            for i in range(n):
-                if isConnected[idx][i]==1 and visited[i]==False:
-                    visited[i] = True
-                    dfs(i)
+        def union(a, b):
+            pa = find_parent(a)
+            pb = find_parent(b)
+            
+            if pa == pb: return
+            pbig, psmall = (pa, pb) if size[pa]>size[pb] else (pb, pa)
+            parent[psmall] = pbig
+            size[pbig] += size[psmall]
+        
+        for i in range(n):
+            for j in range(i+1,n):
+                if isConnected[i][j]:
+                    union(i,j)
                     
-        for idx in range(n):
-            if visited[idx] == False:
-                count+=1
-                dfs(idx)
-        
-        return count
+        return len(set(find_parent(i) for i in range(n)))
