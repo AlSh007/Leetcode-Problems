@@ -1,31 +1,22 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
-class Solution {
-public:
-    
-    int minDiff = INT_MAX;
-    TreeNode* prev = NULL;
-    void inorderTraversal(TreeNode* node){
-        if(node == nullptr)
-            return;
-        inorderTraversal(node -> left);
-        if(prev){
-            minDiff = min(minDiff, node->val - prev->val);
-        }
-        prev = node; //this makes sure that we have node to compare with left or right values
-        inorderTraversal(node->right);
-    }
-    int getMinimumDifference(TreeNode* root) {
-        inorderTraversal(root);
-        return minDiff;
-    }
-};
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
+        self.prev = None
+        self.minDistance = 1e9
+        
+        def inorder(node):
+            if node is None:
+                return
+            inorder(node.left)
+            if self.prev is not None:
+                self.minDistance = min(self.minDistance,node.val - self.prev)
+            self.prev = node.val
+            inorder(node.right)
+        
+        inorder(root)
+        return self.minDistance
