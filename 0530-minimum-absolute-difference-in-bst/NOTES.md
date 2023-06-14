@@ -1,0 +1,1 @@
+The trick is that because its a BST, to find the minimum value we only need to compare the adjacent parent and child node because those values will have the least difference
