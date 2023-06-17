@@ -1,1 +1,1 @@
-​
+idea is that we check if current element is greater than last element or not and we can also pick an element from arr2 to replace current element so basically we calculate costs for both cases and take the min cost from there
