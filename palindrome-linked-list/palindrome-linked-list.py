@@ -11,7 +11,10 @@ class Solution:
             fast = fast.next.next
         prev, slow, prev.next = slow, slow.next, None
         while slow:
-            slow.next, prev, slow = prev, slow, slow.next
+            _next = slow.next
+            slow.next = prev
+            prev = slow
+            slow = _next
         fast, slow = head, prev
         while slow:
             if slow.val != fast.val:
