@@ -1,15 +1,12 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        DIR = [0,1,0,-1,0]
+        def dfs(i,j):
+            image[i][j] = color
+            for x, y in ((i-1, j), (i+1, j), (i, j-1), (i, j+1)):
+                if 0 <= x < m and 0 <= y < n and image[x][y] == old_col:
+                    dfs(x,y)
+        
         old_col, m, n = image[sr][sc], len(image), len(image[0])
         if old_col != color:
-            q = collections.deque([(sr,sc)])
-            while q:
-                r,c = q.popleft()
-                image[r][c] = color
-                for i in range(4):
-                    nr = r + DIR[i]
-                    nc = c + DIR[i+1]
-                    if 0<= nr < m and 0<= nc <n and image[nr][nc] == old_col:
-                        q.append((nr,nc))
+            dfs(sr,sc)
         return image
