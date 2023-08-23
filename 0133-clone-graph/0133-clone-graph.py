@@ -8,17 +8,19 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        if not node: return node
+        old_to_new = {}
         
-        q, clones = deque([node]), {node.val : Node(node.val,[])}
-        while(q):
-            cur = q.popleft()
-            cur_clone = clones[cur.val]
+        def dfs(node):
+            if node in old_to_new:
+                return old_to_new[node]
             
-            for ngh in cur.neighbors:
-                if ngh.val not in clones:
-                    clones[ngh.val] = Node(ngh.val,[])
-                    q.append(ngh)
+            copy = Node(node.val)
+            old_to_new[node] = copy
+            
+            for ngh in node.neighbors:
+                copy.neighbors.append(dfs(ngh))
                 
-                cur_clone.neighbors.append(clones[ngh.val])
-        return clones[node.val]
+            return copy
+            
+            
+        return dfs(node) if node else None
