@@ -1,16 +1,16 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         @lru_cache(None)
-        def helper(amount,i):
+        def dp(amount):
             if amount == 0:
                 return 0
-            if i == -1:
-                return math.inf
             
-            ans = helper(amount, i-1)
-            if coins[i] <= amount:
-                ans = min(ans, helper(amount - coins[i], i) + 1)
+            
+            ans = math.inf
+            for coin in coins:
+                if coin <= amount:
+                    ans = min(ans, dp(amount - coin) + 1)
             return ans
-        n = len(coins)
-        ans = helper(amount, n-1)
+    
+        ans = dp(amount)
         return ans if ans != math.inf else -1
