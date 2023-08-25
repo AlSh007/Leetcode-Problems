@@ -11,7 +11,7 @@ class Solution:
         res = []
         q = deque([root])
         while q:
-            res.append(q[-1].val)
+            res.append(q[-1].val) #for each level we are pushing the value of last node into the ans list
             size = len(q)
             for _ in range(size):
                 node = q.popleft()
