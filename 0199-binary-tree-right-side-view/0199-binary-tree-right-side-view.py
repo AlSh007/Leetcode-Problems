@@ -9,15 +9,14 @@ class Solution:
         if not root:
             return []
         res = []
-        q = deque([root])
-        while q:
-            res.append(q[-1].val) #for each level we are pushing the value of last node into the ans list
-            size = len(q)
-            for _ in range(size):
-                node = q.popleft()
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+        def dfs(root,depth):
+            if not root:
+                return 
+            if depth == len(res):
+                res.append(root.val)
+            dfs(root.right, depth+1)
+            dfs(root.left, depth+1)
+        
+        dfs(root,0)
                 
         return res
