@@ -9,6 +9,6 @@ class Solution:
                 lower_right = triangle[i][j] + next_row[j+1]
                 curr_row[j] = min(lower_left,lower_right)
             
-            curr_row, next_row = next_row, curr_row
+            curr_row, next_row = [0]*n, curr_row
                 
         return next_row[0]
