@@ -9,7 +9,7 @@ class Solution:
             for j in range(i+1, n):
                 dist = manhattan(points[i],points[j])
                 adj[i].append((dist, j))
-                adj[j].append((dist, i))
+                adj[j].append((dist, i)) #makes the graph
                 
         cnt , ans, visited, heap = 1, 0, [0]*n, adj[0]
         visited[0] = 1
@@ -18,9 +18,9 @@ class Solution:
         while heap:
             dist, j = heapq.heappop(heap)
             if not visited[j]:
-                visited[j], cnt, ans = 1, cnt + 1, ans + dist
+                visited[j], cnt, ans = 1, cnt + 1, ans + dist #adding the distance of the closest neighbour node
                 for record in adj[j]:
-                    heapq.heappush(heap, record)
+                    heapq.heappush(heap, record) #adding the neighbours of the neighbouring node
                     
                 if cnt >= n:
                     break
