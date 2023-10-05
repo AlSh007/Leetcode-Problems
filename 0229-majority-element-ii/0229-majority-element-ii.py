@@ -1,7 +1,7 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        dic = defaultdict(int)
+        dic = {}
         for num in nums:
             if num not in dic.keys():
                 dic[num] = 1
