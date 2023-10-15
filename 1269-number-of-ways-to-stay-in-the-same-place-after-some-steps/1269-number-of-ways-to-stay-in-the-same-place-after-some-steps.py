@@ -1,20 +1,22 @@
 class Solution:
     def numWays(self, steps: int, arrLen: int) -> int:
         MOD = 10**9 + 7
-        memo = {}
+        arrLen = min(arrLen, steps //2 + 1)
         
-        def dp(step, index):
-            if step == 0:
-                return 1 if index == 0 else 0
-            if index < 0 or index >= arrLen or step < 0:
-                return 0
-            if (step, index) in memo:
-                return memo[(step, index)]
-            
-            ways = dp(step - 1, index)%MOD #we stay
-            ways += dp(step - 1, index - 1)%MOD #we go left
-            ways += dp(step - 1, index + 1)%MOD #we go right
-            memo[(step, index)] = ways%MOD
-            return memo[(step, index)]
+        dp = [[0]*(steps + 1) for _ in range(arrLen)]
         
-        return dp(steps, 0)
+        dp[0][0] = 1
+        
+        for step in range(1, steps + 1):
+            for index in range(arrLen - 1, -1, -1):
+                ans = dp[index][step - 1]
+                
+                if index > 0:
+                    ans = (ans + dp[index - 1][step - 1]) %MOD
+                
+                if index < arrLen - 1:
+                    ans = (ans +  dp[index + 1][step - 1])%MOD
+                    
+                dp[index][step] = ans
+        
+        return dp[0][steps]
