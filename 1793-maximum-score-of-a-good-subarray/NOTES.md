@@ -1,1 +1,1 @@
-​
+We will expand our window on both sides until we exhaust our array and we will calculate the required product at every step to have the max result
