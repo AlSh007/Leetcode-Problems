@@ -1,13 +1,19 @@
 class Solution:
-    def dfs(self, n, k, rootVal):
-        if n == 1:
-            return rootVal
-        total_nodes = 2**(n - 1)
-        if k > (total_nodes / 2):
-            nextRootVal = 1 if rootVal == 0 else 0
-            return self.dfs(n - 1, k - (total_nodes / 2), nextRootVal)
-        else:
-            nextRootVal = 0 if rootVal == 0 else 1
-            return self.dfs(n - 1, k, nextRootVal)
     def kthGrammar(self, n: int, k: int) -> int:
-        return self.dfs(n, k, 0)
+        if n == 1:
+            return 0
+        
+        symbol = 1
+        
+        for curr_row in range(n, 1, -1):
+            total_elements = 2**(curr_row - 1)
+            half_elements = total_elements // 2
+            
+            if k > half_elements:
+                symbol = 1 - symbol
+                k -= half_elements
+                
+        if symbol != 0:
+            return 0
+        
+        return 1
