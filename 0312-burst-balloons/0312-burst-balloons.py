@@ -5,7 +5,7 @@ class Solution:
         def calc(i, j):
             if j - i < 2:
                 return 0
-            if i + 1 == j or dp[i][j] != -1:
+            if dp[i][j] != -1:
                 return dp[i][j]
             
             coins = 0
