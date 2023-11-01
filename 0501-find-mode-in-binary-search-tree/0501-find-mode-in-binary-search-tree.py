@@ -8,16 +8,17 @@
 class Solution:
     def findMode(self, root: Optional[TreeNode]) -> List[int]:
         dic = defaultdict(int)
+        queue = deque([root])
         
-        def inorder(root):
-            if not root:
-                return
-            inorder(root.left)
-            dic[root.val] += 1
-            inorder(root.right)
+        while queue:
+            node = queue.popleft()
+            dic[node.val] += 1
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
         
         ans = []
-        inorder(root)
         mode = max(dic.values())
         for key in dic:
             if dic[key] == mode:
