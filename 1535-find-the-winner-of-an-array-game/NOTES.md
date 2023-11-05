@@ -1,0 +1,1 @@
+trick is we dont need to rotate the array we can go through the array once and we will find our max element if k > len(array) and if k < len(array) we will find the ans anyway
