@@ -13,15 +13,18 @@ class Solution:
                 root = node
                 break
                 
-        ans = []
+        curr = root
+        ans = [root]
+        prev = None
         
-        def dfs(node, prev):
-            ans.append(node)
-            for neighbor in graph[node]:
+        while len(ans) < len(graph):
+            for neighbor in graph[curr]:
                 if neighbor != prev:
-                    dfs(neighbor, node)
+                    ans.append(neighbor)
+                    prev = curr
+                    curr = neighbor
+                    break
         
-        dfs(root,None)
         return ans
         
         
