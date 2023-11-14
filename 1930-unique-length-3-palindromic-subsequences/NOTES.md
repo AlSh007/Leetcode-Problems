@@ -1,0 +1,1 @@
+So the intuition for this problem is that to make a 3 len unique substring we can have any character in between and 2 same characters on the outside and for it to be unique we will choose the first occurence on the left and last occurence on the right and we will choose characters between those occurences and all unqiue subsequences formed will be added to the final result
