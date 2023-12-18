@@ -1,21 +1,12 @@
 class Solution:
     def maxProductDifference(self, nums: List[int]) -> int:
-        biggest = 0
-        second_biggest = 0
-        smallest = inf
-        second_smallest = inf
-        
-        for num in nums:
-            if num > biggest:
-                second_biggest = biggest
-                biggest = num
-            else:
-                second_biggest = max(second_biggest, num)
-                
-            if num < smallest:
-                second_smallest = smallest
-                smallest = num
-            else:
-                second_smallest = min(second_smallest, num)
-        
-        return biggest * second_biggest - smallest * second_smallest
+        max_1 = max(nums)
+        nums.remove(max_1)
+        max_2 = max(nums)
+
+        min_1 = min(nums)
+        nums.remove(min_1)
+        min_2 = min(nums)
+
+
+        return (max_1 * max_2) - (min_1 * min_2)
