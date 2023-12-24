@@ -1,0 +1,1 @@
+The strings can start with either 1 or 0 now if it starts from 0 every even position will have 0 and odd positions will have 1s
