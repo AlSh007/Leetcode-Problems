@@ -1,16 +1,10 @@
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        losses = [0]*100001
+        cnt_loser = defaultdict(int)
         
-        for winner, loser in matches:
-            if losses[winner] == 0:
-                losses[winner] -= 1
-            if losses[loser] == -1:
-                losses[loser] = 1
-            else:
-                losses[loser] += 1
-                
-        zero_loss = [i for i in range(1, 100001) if losses[i] == -1]
-        one_loss = [i for i in range(1, 100001) if losses[i] == 1]
-
-        return [zero_loss, one_loss]
+        for w, l in matches:
+            cnt_loser.setdefault(w, 0)
+            cnt_loser[l] += 1
+            
+        return [sorted(l for l, c in cnt_loser.items() if c == 0),
+               sorted(l for l, c in cnt_loser.items() if c == 1)]
