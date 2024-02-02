@@ -9,5 +9,7 @@ class Solution:
             last = elem % 10
             if last < 9:
                 queue.append(elem * 10 + last + 1)
+            elif high < elem:
+                return ans
         
         return ans
