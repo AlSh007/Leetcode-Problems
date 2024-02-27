@@ -18,4 +18,3 @@ class Solution:
         
         self.depth(root)
         return self.diameter
-        #return depth(root.left) + depth(root.right)
