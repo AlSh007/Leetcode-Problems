@@ -1,1 +1,1 @@
-​
+We swap every element with the number on its appropriate index in the first pass, in the second pass we check which element is not on its correct index and return it
