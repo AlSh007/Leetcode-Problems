@@ -6,19 +6,18 @@ class Solution:
             graph[e1].append(e2)
             graph[e2].append(e1)
             
-        def dfs(node, visited):
+        
+        q = deque([source])
+        visited = set([source])
+        
+        while q:
+            node = q.popleft()
             if node == destination:
-                return True
-            if node in visited:
-                return False
-            
-            visited.add(node)
-            
-            for neigh in graph[node]:
-                if dfs(neigh, visited):
                     return True
             
-            return False
-        
-        visited = set()
-        return dfs(source, visited)
+            for neigh in graph[node]:
+                if neigh not in visited:
+                    visited.add(neigh)
+                    q.append(neigh)
+            
+        return False
