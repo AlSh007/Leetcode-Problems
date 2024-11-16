@@ -1,22 +1,20 @@
 class Solution:
     def resultsArray(self, nums: List[int], k: int) -> List[int]:
-        length = len(nums)
-        result = [-1] * (length - k + 1)
-        index_deque = deque()
+        l = 0
+        res = []
+        consecutive_cnt = 1
         
-        for current_index in range(length):
-            if index_deque and index_deque[0] < current_index - k + 1:
-                index_deque.popleft()
+        for r in range(len(nums)):
+            if r > 0 and nums[r] == nums[r-1] + 1:
+                consecutive_cnt += 1
             
-            if (index_deque and nums[current_index] != nums[current_index - 1] + 1):
-                index_deque.clear()
+            if r - l + 1 > k:
+                if nums[l + 1] == nums[l] + 1:
+                    consecutive_cnt -= 1
+                
+                l += 1
             
-            index_deque.append(current_index)
-            
-            if current_index >= k - 1:
-                if len(index_deque) == k:
-                    result[current_index - k + 1] = nums[index_deque[-1]]
-                else:
-                    result[current_index - k + 1] = -1
+            if r - l + 1 == k:
+                res.append(nums[r] if consecutive_cnt == k else -1)
         
-        return result
+        return res
