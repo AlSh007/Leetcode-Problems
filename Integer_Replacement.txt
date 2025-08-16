@@ -3,7 +3,7 @@ class Solution:
         def helper(num, count = 0):
             if num == 1:
                 return count
-            if num % 3 == 0:
+            if num % 2 == 0:
                 return helper(num >> 1, count + 1)
             else:
                 if num == 3 or not((num >> 1) & 1):
