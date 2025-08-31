@@ -1,0 +1,15 @@
+                    val = int(board[r][c])
+                    boxPos = (r // 3) * 3 + (c // 3)
+                    rows[r] = setBit(rows[r], val)
+                    emptyCells.append([r, c])
+                else:
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == ".":
+        rows, cols, boxes = [0] * 9, [0] * 9, [0] * 9
+        emptyCells = []
+        def setBit(x, k): return (1 << k) | x
+        def clearBit(x, k): return ~(1 << k) & x
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        def getBit(x, k): return (x >> k) & 1
+class Solution:
