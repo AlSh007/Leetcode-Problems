@@ -1,0 +1,14 @@
+                    continue
+                flag = True
+                x2, y2 = points[j]
+                
+                if x1 > x2 or y1 < y2:
+            for j in range(n):
+                if i == j:
+                    continue
+        count = 0
+        for i in range(n):
+            x1, y1 = points[i]
+        n = len(points)
+class Solution:
+    def numberOfPairs(self, points: list[list[int]]) -> int:
