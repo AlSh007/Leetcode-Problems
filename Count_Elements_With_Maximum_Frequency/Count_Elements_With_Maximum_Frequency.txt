@@ -1,0 +1,14 @@
+        count = Counter(nums)
+        max_freq = float('-inf')
+        ans = 0
+        for freq in count.values():
+            if freq > max_freq:
+                ans = freq
+        
+            print(freq)
+                max_freq = freq
+            elif freq == max_freq:
+                ans += freq 
+        return ans
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
