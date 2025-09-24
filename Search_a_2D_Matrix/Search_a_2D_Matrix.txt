@@ -1,0 +1,15 @@
+        while low <= high:
+            mid = (low + high) // 2
+            num = matrix[mid//cols][mid % cols]
+            
+            if num == target:
+                return True
+            elif num < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        
+        return False
+        low, high = 0, rows * cols - 1
+        
+        rows, cols = len(matrix), len(matrix[0])
