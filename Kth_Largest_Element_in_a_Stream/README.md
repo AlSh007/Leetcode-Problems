@@ -6,7 +6,7 @@
 
 - Language: txt
 - Difficulty: Easy
-- Acceptance: 98
+- Acceptance: N/A
 - Tags: 
 - URL: https://leetcode.com/problems/kth-largest-element-in-a-stream/
 
