@@ -1,0 +1,14 @@
+            del self.m[key]
+            self.deleteNode(resNode)
+            self.addNode(resNode)
+            self.m[key] = self.head.next
+            return ans
+        return -1
+    def put(self, key: int, value: int) -> None:
+        if key in self.m:
+            curr = self.m[key]
+            del self.m[key]
+            self.deleteNode(curr)
+        if len(self.m) == self.cap:
+            del self.m[self.tail.prev.key]
+            self.deleteNode(self.tail.prev)
