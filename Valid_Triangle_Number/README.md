@@ -5,9 +5,10 @@
 ## Metadata
 
 - Language: txt
-- Difficulty: Unknown
-- Acceptance: N/A
-- Tags: N/A
+- Difficulty: Medium
+- Acceptance: 53.8
+- Tags: 
+- URL: https://leetcode.com/problems/valid-triangle-number/?envType=daily-question&envId=2025-09-26
 
 ## Files
 
