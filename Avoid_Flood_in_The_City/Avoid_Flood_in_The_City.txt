@@ -1,0 +1,16 @@
+                    return []
+                full.add(lake)
+                dic[lake].pop(0)
+            if lake:
+                if lake in full:
+        
+        for i in range(len(rains)):
+            lake = rains[i]
+        for day,lake in enumerate(rains):
+            dic[lake].append(day)
+        ret = [-1] * len(rains)
+        to_empty = [] # index
+        full = set([])
+class Solution:
+    def avoidFlood(self, rains: List[int]) -> List[int]:
+        dic = collections.defaultdict(list)
