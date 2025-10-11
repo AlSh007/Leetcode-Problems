@@ -1,0 +1,12 @@
+            currentDamageTotal = currentDamageValue * damageFrequency[currentDamageValue]
+        for i in range(1, totalUniqueDamages):
+            currentDamageValue = uniqueDamages[i]
+        maxDamageDP[0] = uniqueDamages[0] * damageFrequency[uniqueDamages[0]]
+        uniqueDamages = sorted(damageFrequency.keys())
+        totalUniqueDamages = len(uniqueDamages)
+        maxDamageDP = [0] * totalUniqueDamages
+        for damage in power:
+            damageFrequency[damage] += 1
+        damageFrequency = defaultdict(int)
+class Solution(object):
+    def maximumTotalDamage(self, power):
