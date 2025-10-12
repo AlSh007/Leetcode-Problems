@@ -1,0 +1,16 @@
+            if index >= len(numbers):
+                return 0
+            
+            ans = 0
+            if remaining == 0:
+                return 1 if odd_needed == carry.bit_count() else 0
+        def dfs(remaining, odd_needed, index, carry):
+            if remaining < 0 or odd_needed < 0 or remaining + carry.bit_count() < odd_needed:
+                return 0
+        
+        @lru_cache(None)
+class Solution:
+    def magicalSum(self, total_count: int, target_odd: int, numbers: List[int]) -> int:
+from functools import lru_cache
+import math
+from typing import List
