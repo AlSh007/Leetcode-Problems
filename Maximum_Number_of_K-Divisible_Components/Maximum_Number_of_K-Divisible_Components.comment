@@ -1,0 +1,20 @@
+while queue:
+            current_node = queue.popleft()
+            indegree[current_node] -= 1
+            add_value = 0
+            
+            if values[current_node] % k == 0:
+                component_count += 1
+            else:
+                add_value = values[current_node]
+            
+            for neighbor_node in graph[current_node]:
+                if indegree[neighbor_node] == 0:
+                    continue
+                indegree[neighbor_node] -= 1
+                values[neighbor_node] += add_value
+                
+                if indegree[neighbor_node] == 1:
+                    queue.append(neighbor_node)
+        
+        return component_count
