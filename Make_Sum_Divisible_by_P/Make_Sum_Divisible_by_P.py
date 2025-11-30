@@ -1,4 +1,5 @@
-def minSubarray(self, nums: List[int], p: int) -> int:
+class Solution:
+    def minSubarray(self, nums: List[int], p: int) -> int:
         n = len(nums)
         target = sum(nums) % p
         if not target:
@@ -14,5 +15,3 @@ def minSubarray(self, nums: List[int], p: int) -> int:
             hashmap[prefix_sum%p] = i
         
         return ans if ans < n else -1
-
-class Solution:
