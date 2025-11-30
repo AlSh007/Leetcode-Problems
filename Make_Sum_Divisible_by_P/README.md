@@ -42,9 +42,9 @@ Constraints:
 
 - Language: py
 - Difficulty: Medium
-- Acceptance: 27.47
+- Acceptance: 40.8
 - Tags: 
-- URL: https://leetcode.com/problems/make-sum-divisible-by-p/?envType=daily-question&envId=2025-11-30
+- URL: https://leetcode.com/problems/make-sum-divisible-by-p/description/
 
 ## Files
 
