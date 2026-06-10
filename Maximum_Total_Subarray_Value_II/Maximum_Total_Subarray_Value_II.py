@@ -12,3 +12,15 @@ class Solution:
                 break
             res -= val
             heapq.heapreplace(pq, (-LUT.query(l, r - 1), l, r - 1))
+
+        return res
+
+class SparseTable:
+    def __init__(self, num: list[int]):
+        n = len(num)
+        bitWidth = n.bit_length()
+        self.Min = [[0] * n for _ in range(bitWidth)]
+        self.Max = [[0] * n for _ in range(bitWidth)]
+
+        for i in range(n):
+            self.Min[0][i] = self.Max[0][i] = num[i]
