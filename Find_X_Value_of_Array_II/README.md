@@ -6,9 +6,9 @@
 
 - Language: python3
 - Difficulty: Hard
-- Acceptance: 32.73
+- Acceptance: 67.9
 - Tags: 
-- URL: https://leetcode.com/problems/find-x-value-of-array-ii/?envType=daily-question&envId=2026-09-22
+- URL: https://leetcode.com/problems/find-x-value-of-array-ii/description/?envType=daily-question&envId=2026-09-22
 
 ## Files
 
