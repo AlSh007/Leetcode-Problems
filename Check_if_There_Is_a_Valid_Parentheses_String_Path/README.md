@@ -55,7 +55,7 @@ Constraints:
 
 - Language: python3
 - Difficulty: Hard
-- Acceptance: 100
+- Acceptance: N/A
 - Tags: 
 - URL: https://leetcode.com/problems/check-if-there-is-a-valid-parentheses-string-path/?envType=daily-question&envId=2026-09-29
 
